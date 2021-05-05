@@ -1,0 +1,57 @@
+@RunWith  
+  --When a class is annotated with @RunWith or extends a class annotatedwith @RunWith, JUnit will invoke the class it references to 
+  run thetests in that class instead of the runner built into JUnit. We added this feature latein development. While it seems powerful
+  we expect the runner API to change as we learnhow people really use it. Some of the classes that are currently internal will likelybe
+  refined and become public.For example, suites in JUnit 4 are built using RunWith, and a custom runner named Suite
+  
+  
+   --SpringRunner is an alias for the SpringJUnit4ClassRunner
+   --You can add scripts to your data source bean.
+   --enivironment-specific bean-definitions
+   --creating one profile in situation A and another profile in situation B.
+   --@Profile("development"),@Profile("production"). You can also mention arrays of environments.
+   the profile string can contains expressions also for making more complex profiles logic to be easy.
+   ! and & and | in the string.
+   
+   	You cannot mix the & and | operators without using parentheses. 
+    For example, production & us-east | eu-central is not a valid expression. It must be expressed as production & (us-east | eu-central)
+    
+    @Profile({"p1", "!p2"})  . ---> you can declare like this also.
+    
+    
+    @Profile can also be declared at the method level to include only one particular bean of a configuration class
+    
+    @Production  ------->       @Target(ElementType.TYPE)
+                                @Retention(RetentionPolicy.RUNTIME)
+                                @Profile("production")
+                                public @interface Production {
+                                }
+                                
+     If a @Component or @Configuration class is marked with @Profile({"p1", "p2"}), 
+     that class is not registered or processed unless profiles 'p1' or 'p2' have been activated.
+     
+     
+     you can get Environment API which is available through an ApplicationContext.
+     
+     @TestConfiguration is special form of Configuration. Which can be used to create extra beans for a test.
+     the beans created in @TestConfiguration is not scanned in component scanning.
+     
+     you need to explicitly tell the testclass for the above info.
+     
+     @ContextConfiguration defines class-level metadata that is used to determine how to load and configure an ApplicationContext for integration tests.
+     
+     
+     
+     monolithic vs micro service.
+     
+     when you change one module, the other module may broke up
+     when one module is change, you need to deploy the entire module.
+     you can choose techology specific for the specific need.
+     module re usability.
+     
+     
+     
+     
+     
+     
+     
